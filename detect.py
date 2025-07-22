@@ -31,7 +31,13 @@ while cap.isOpened():
 			cv2.putText(annotatedFrame, f"{x1} {y1} {x2} {y2}", (x1, y1 - 40), cv2.FONT_HERSHEY_PLAIN, 2.0, (0, 255, 0), 2, cv2.LINE_AA)
 
 		# プレビューウィンドウに画像出力
+		# ウィンドウを作成
+		cv2.namedWindow("YOLOv8 Inference", cv2.WND_PROP_FULLSCREEN)
+		# ウィンドウサイズをフルスクリーンに設定
+		cv2.setWindowProperty("YOLOv8 Inference", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+		# 画像をウィンドウに表示
 		cv2.imshow("YOLOv8 Inference", annotatedFrame)
+
 	
 		# アプリケーション終了
 		if cv2.waitKey(1) & 0xFF == ord("q"):
